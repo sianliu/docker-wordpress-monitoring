@@ -1,9 +1,9 @@
-# WordPress, Prometheus and Grafana on docker using Ansible
+# Project Title 
 
-Here's is the quick start on wordpress application setup using docker compose and setup on monitoring tools such as prometheus, grafana, cadvisor on docker container using docker compose. AWS instances are used and configured with help of ansible.
+Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment. 
 
 ```
-## Here WordPress is hosted on docker container inside aws instance. Instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/playbook/wordpress) which install docker and docker compose. [Docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/wordpress) uses the latest wordpress and mysql image from docker hub and build the container with configuration and then start it.
+## Here WordPress is hosted in a docker container inside an aws instance. The instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/playbook/wordpress) which installs docker and docker compose. [Docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/wordpress) uses the latest wordpress and mysql images from docker hub and builds the container with configuration and then starts it.
 
 ### WordPress docker compose config
 ```  wordpress:
@@ -50,12 +50,6 @@ Prometheus is an open-source systems monitoring and alerting toolkit originally 
 
 ### [Grafana](https://grafana.com/)
 Grafana is an open source metric analytics & visualization suite. It is most commonly used for visualizing time series data for infrastructure and application analytics. Grafana dashboard found [here](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring/dashboards)
-
-#### Steps to configure grafana dashboard
-1. Select the datasource type to prometheus
-2. Provide the prometheus URL default - http://localhost:9090
-3. Set the datasource access type to Proxy
-4. Import dashboard from [json](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring/dashboards/docker_monitoring.json) and select the prometheus datasource.
 
 ## Sourcecode reference
 ```
