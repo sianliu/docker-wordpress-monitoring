@@ -14,6 +14,11 @@ Install Ansible on EC2 instance.
 sudo apt install ansible
 ```
 
+# Installing
+A step by step series of examples that tell you how to get a development environment running.
+
+
+
 ## Monitoring Applications
 Prometheus along with grafana is configured to monitor docker and show it in the dashboard. Instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/develop/playbook/monitoring) which install docker and docker compose. Applications are launched inside docker container using [docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring).
 
