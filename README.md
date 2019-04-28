@@ -4,25 +4,14 @@ Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafan
 
 ```
 ## Here WordPress is hosted in a docker container inside an aws instance. The instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/playbook/wordpress) which installs docker and docker compose. [Docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/wordpress) uses the latest wordpress and mysql images from docker hub and builds the container with configuration and then starts it.
-
-### WordPress docker compose config
-```  wordpress:
-    image: wordpress:latest
-    ports:
-      - 80:80
-    volumes:
-      - ./wp-app:/var/www/html # Full wordpress project
-    depends_on:
-      - db
 ```
 
-### Mysql docker compose config
-```  db:
-    image: mysql:latest
-    ports:
-      - 3306:3306
-    volumes:
-      - ./wp-data:/docker-entrypoint-initdb.d
+# Prerequisites
+
+Install Ansible on EC2 instance. 
+
+```
+sudo apt install ansible
 ```
 
 ## Monitoring Applications
