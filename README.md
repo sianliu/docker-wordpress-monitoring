@@ -2,7 +2,9 @@
 
 Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment. 
 
-## Here WordPress is hosted in a docker container inside an aws instance. The instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/playbook/wordpress) which installs docker and docker compose. [Docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/wordpress) uses the latest wordpress and mysql images from docker hub and builds the container with configuration and then starts it.
+# Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 # Prerequisites
 
