@@ -66,8 +66,6 @@ Grafana is an open source metric analytics & visualization suite. It is most com
 ## Reference
 * http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html
 * http://docs.ansible.com/ansible/latest/list_of_commands_modules.html
-* http://docs.aws.amazon.com/autoscaling/latest/userguide/LaunchConfiguration.html
-* http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html
 * https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 * https://docs.docker.com/compose/install/
 * https://docs.docker.com/samples/wordpress/
