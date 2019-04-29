@@ -1,6 +1,8 @@
 # Project Title 
 
-Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment. 
+Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment.
+
+Note: not for production use
 
 # Getting Started
 
@@ -22,7 +24,11 @@ sudo usermod -aG docker ubuntu
 # Installing
 A step by step series of examples that tell you how to get a development environment running.
 
-
+1) git clone https://github.com/sianliu/docker-wordpress-monitoring.git
+2) cd docker-wordpress-monitoring
+3) ansible-playbook playbook/wordpress/site.yml
+4) cd ../../docker/monitoring/
+5) docker-compose up
 
 ## Monitoring Applications
 Prometheus along with grafana is configured to monitor docker and show it in the dashboard. Instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/develop/playbook/monitoring) which install docker and docker compose. Applications are launched inside docker container using [docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring).
