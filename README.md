@@ -8,10 +8,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 # Prerequisites
 
-Install Ansible on EC2 instance. 
+1) Install Ansible on EC2 instance.
 
 ```
 sudo apt install ansible
+```
+2) Manage docker as a non-root user
+
+```
+sudo usermod -aG docker ubuntu
 ```
 
 # Installing
