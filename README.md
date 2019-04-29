@@ -2,8 +2,6 @@
 
 Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment.
 
-Note: not for production use
-
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
