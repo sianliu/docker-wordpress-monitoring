@@ -77,3 +77,9 @@ Grafana is an open source metric analytics & visualization suite. It is most com
 * https://prometheus.io/docs/introduction/overview/
 * http://docs.grafana.org/
 * https://grafana.com/dashboards/893
+
+## Intent
+For Interview Technical Assessment Purposes and not for production use. 
+
+## Credit
+https://github.com/kavinksm/docker-wordpress-monitoring
