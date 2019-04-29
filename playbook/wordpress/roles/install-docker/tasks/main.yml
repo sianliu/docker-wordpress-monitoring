@@ -11,9 +11,9 @@
   shell: uname -r
   register: osversion
   
-- name: Install linux-image-extra-3.13.0-121-generic
+- name: Install linux-image-4.4.0-1079-aws 
   apt: 
-    name: linux-image-extra-3.13.0-121-generic
+    name: linux-image-4.4.0-1079-aws 
     state: present
 
 - name: Install linux-image-extra-virtual 
@@ -43,7 +43,7 @@
   register: keyfp
 
 - name: Update repo
-  command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable"
+  command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial xenial"
 
 - name: Update OS
   apt: 
@@ -51,7 +51,7 @@
 
 - name: Install docker CE
   apt: 
-    name: docker-ce
+    name: docker-ce 
     state: latest
 #- name: Install docker CE
 #  command: sudo apt-get install docker-ce -y
@@ -66,7 +66,7 @@
 #chmod +x /usr/local/bin/docker-compose
 
 - name: Get docker compose
-  shell: sudo curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  shell: sudo curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 - name: Make docker-compose executable
   shell: chmod +x /usr/local/bin/docker-compose
@@ -76,22 +76,12 @@
     name: awscli
     state: latest
 
-- name: Download wordpress data
-  shell: aws s3 cp s3://devopstools.data/data_07_27_2017.sql.gz data_07_27_2017.sql.gz --region us-east-1
-  args:
-    chdir: "{{ clonepath }}/docker/wordpress/"
-
-- name: gunzip wordpress data
-  shell: gunzip data_07_27_2017.sql.gz
-  args:
-    chdir: "{{ clonepath }}/docker/wordpress/"
-
 - name: Build and start container for wordpress
   shell: docker-compose up -d
   args:
-    chdir: "{{ clonepath }}/docker/wordpress/"
+    chdir: "../../docker/wordpress/"
 
 #- name: Import data into wordpress database
 #  shell: docker-compose exec db sh -c 'exec mysql "wordpress" -uroot -pMYSQLdb123' < data_07_27_2017.sql
 #  args:
-#    chdir: "{{ clonepath }}/docker/wordpress/"
+#    chdir: "../../docker/wordpress/"
