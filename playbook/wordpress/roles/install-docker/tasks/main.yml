@@ -43,7 +43,7 @@
   register: keyfp
 
 - name: Update repo
-  command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial xenial"
+  command: sudo apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 
 - name: Update OS
   apt: 
