@@ -1,40 +1,39 @@
 #To install docker and it launch wordpress application
-#https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-#- name : wait for 3 minutes 
+#- name : wait for 3 minutes
 #  pause:
 #    minutes: 3
 
 - name: Update OS
-  apt: 
+  apt:
     update_cache: yes
 
 - name: Get kernel release
   shell: uname -r
   register: osversion
-  
-- name: Install linux-image-extra-3.13.0-121-generic
-  apt: 
-    name: linux-image-extra-3.13.0-121-generic
+
+- name: Install linux-image-4.4.0-1079-aws
+  apt:
+    name: linux-image-4.4.0-1079-aws
     state: present
 
-- name: Install linux-image-extra-virtual 
-  apt: 
+- name: Install linux-image-extra-virtual
+  apt:
     name: linux-image-extra-virtual
     state: present
-    
+
 - name: Update the machine
-  apt: 
+  apt:
     update_cache: yes
 
 - name: Allow apt to use a repository over HTTPS
-  apt: 
+  apt:
     name: "{{ item }}"
     state: installed
   with_items:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
 
 - name: Add the gpg key
   shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -44,14 +43,14 @@
   register: keyfp
 
 - name: Update repo
-  command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu trusty stable"
+  command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 
 - name: Update OS
-  apt: 
+  apt:
     update_cache: yes
 
 - name: Install docker CE
-  apt: 
+  apt:
     name: docker-ce
     state: latest
 #- name: Install docker CE
@@ -60,19 +59,29 @@
 #http://docs.ansible.com/ansible/latest/service_module.html
 - name: Start docker service
   service:
-   name: docker
-   state: restarted
+    name: docker
+    state: restarted
 
 #curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 #chmod +x /usr/local/bin/docker-compose
 
 - name: Get docker compose
-  shell: sudo curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+  shell: sudo curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 - name: Make docker-compose executable
   shell: chmod +x /usr/local/bin/docker-compose
-  
-- name: Build and start container for Monitoring applications
+
+- name: Install AWS CLI
+  apt:
+    name: awscli
+    state: latest
+
+- name: Build and start container for wordpress
   shell: docker-compose up -d
   args:
-    chdir: "{{ clonepath }}/docker/monitoring/"
+    chdir: "../../docker/wordpress/"
+
+#- name: Import data into wordpress database
+#  shell: docker-compose exec db sh -c 'exec mysql "wordpress" -uroot -pMYSQLdb123' < data_07_27_2017.sql
+#  args:
+#    chdir: "../../docker/wordpress/"
