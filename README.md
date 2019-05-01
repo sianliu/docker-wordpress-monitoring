@@ -2,8 +2,6 @@
 
 Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafana. Docker-compose is then used to setup the wordpress and monitoring environment.
 
-Note: not for production use
-
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -77,3 +75,9 @@ Grafana is an open source metric analytics & visualization suite. It is most com
 * https://prometheus.io/docs/introduction/overview/
 * http://docs.grafana.org/
 * https://grafana.com/dashboards/893
+
+## Intent
+For Interview Technical Assessment Purposes and not for production use. 
+
+## Credit
+https://github.com/kavinksm/docker-wordpress-monitoring
