@@ -7,12 +7,12 @@ Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafan
 These instructions will get you a copy of the project up and running on your local machine running Linux for development and testing purposes.
 
 # Environment
-OS: Ubuntu 16.04 Xenial LTS
-Ansible: 2.0.0.2
-Docker: 18.09.5
-docker-compose: 1.24
-mysql: 5.7
-grafana: 5.4.4
+* OS: Ubuntu 16.04 Xenial LTS
+* Ansible: 2.0.0.2
+* Docker: 18.09.5
+* docker-compose: 1.24
+* mysql: 5.7
+* grafana: 5.4.4
 
 # Prerequisites
 
