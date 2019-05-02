@@ -36,8 +36,8 @@ sudo usermod -aG docker ubuntu
 5) run: docker-compose up -d 
 
 # Subsequent Launches 
-*chdir: docker/wordpress docker-compose up -d
-*chdir: docker/monitoring docker-compose up -d
+1) chdir: docker/wordpress docker-compose up -d
+2) chdir: docker/monitoring docker-compose up -d
 
 ## Monitoring Applications
 Prometheus along with grafana is configured to monitor docker and show it in the dashboard. Instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/develop/playbook/monitoring) which install docker and docker compose. Applications are launched inside docker container using [docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring).
