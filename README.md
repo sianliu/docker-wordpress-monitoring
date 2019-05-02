@@ -5,7 +5,14 @@ Ansible installs wordpress mysql, docker, docker-compose, prometheus, and grafan
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine running Linux for development and testing purposes.
-Tested on a system running Ubuntu 16.04 Xenial LTS.
+
+# Environment
+OS: Ubuntu 16.04 Xenial LTS
+Ansible: 2.0.0.2
+Docker: 18.09.5
+docker-compose: 1.24
+mysql: 5.7
+grafana: 5.4.4
 
 # Prerequisites
 
@@ -20,15 +27,17 @@ sudo apt install ansible
 sudo usermod -aG docker ubuntu
 ```
 
-# Installing
-A step by step series of examples that tell you how to get a development environment running.
+# Initial Installation
 
 1) git clone https://github.com/sianliu/docker-wordpress-monitoring.git
-2) cd docker-wordpress-monitoring
-3) ansible-playbook playbook/wordpress/site.yml (only need to run once)
-4) consecutive attempts bring up wordpress and mysql containers by running docker-compose up -d in ../../docker/wordpress directory
-4) To bring up grafana and google cadvisor containers chdir to ../../docker/monitoring/
-5) docker-compose up -d
+2) chdir: docker-wordpress-monitoring
+3) run: ansible-playbook playbook/wordpress/site.yml 
+4) chdir: docker/monitoring 
+5) run: docker-compose up -d 
+
+# Subsequent Launches 
+*chdir: docker/wordpress docker-compose up -d
+*chdir: docker/monitoring docker-compose up -d
 
 ## Monitoring Applications
 Prometheus along with grafana is configured to monitor docker and show it in the dashboard. Instance is configured using [ansible playbook](https://github.com/sianliu/docker-wordpress-monitoring/tree/develop/playbook/monitoring) which install docker and docker compose. Applications are launched inside docker container using [docker compose](https://github.com/sianliu/docker-wordpress-monitoring/tree/master/docker/monitoring).
