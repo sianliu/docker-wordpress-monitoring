@@ -45,6 +45,7 @@ services:
       - 9100
     networks:
       - back-tier
+
   alertmanager:
     image: prom/alertmanager
     ports:
@@ -58,7 +59,7 @@ services:
       - '-storage.path=/alertmanager'
 
   cadvisor:
-    image: google/cadvisor
+    image: google/cadvisor:latest
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -82,3 +83,4 @@ services:
     networks:
       - back-tier
       - front-tier
+
